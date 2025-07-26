@@ -21,55 +21,58 @@
             bindings = <
 &kp ESC         &kp N1  &kp N2    &kp N3    &kp N4     &kp N5                                    &kp N6        &kp N7     &kp N8     &kp N9    &kp N0    &kp GRAVE
 &kp TAB         &kp Q   &kp W     &kp E     &kp R      &kp T                                     &kp Y         &kp U      &kp I      &kp O     &kp P     &kp LEFT_BRACKET
-&kp LEFT_SHIFT  &kp A   &kp S     &kp D     &kp F      &kp G                                     &kp H         &kp J      &kp K      &kp L     &kp SEMI  &kp SQT
-&kp LCTRL       &kp Z   &kp X     &kp C     &kp V      &kp B            &kp HOME     &kp K_MUTE  &kp N         &kp M      &kp COMMA  &kp DOT   &kp FSLH  &kp RIGHT_BRACKET
+&kp LEFT_SHIFT  &kp A   &kp S     &kp D     &kp F      &kp G                                     &kp H         &kp J      &kp K      &kp L     &kp SEMI  &mt RIGHT_SHIFT SQT
+&kp LCTRL       &kp Z   &kp X     &kp C     &kp V      &kp B            &kp HOME     &kp C_MUTE  &kp N         &kp M      &kp COMMA  &kp DOT   &kp FSLH  &kp RIGHT_BRACKET
                         &kp LGUI  &kp LALT  &kp LCTRL  &lt 1 BACKSPACE  &kp SPACE    &kp ENTER   &lt 2 DELETE  &kp RCTRL  &kp RALT   &kp RGUI
             >;
 
             display-name = "Base";
-            sensor-bindings =
-                <&inc_dec_kp LEFT_ARROW RIGHT_ARROW>,
-                <&enc_vol>,
-                <&enc_vol>,
-                <&enc_vol>,
-                <&enc_vol>,
-                <&enc_vol>;
+            sensor-bindings = <&inc_dec_kp RIGHT_ARROW LEFT_ARROW>, <&enc_vol>;
         };
 
         nav {
+            display-name = "Navigation";
             bindings = <
-&kp F1  &kp F2  &kp F3        &kp F4    &kp F5         &kp F6                     &kp F7           &kp F8  &kp F9  &kp F10  &kp F11  &kp F12
-&trans  &trans  &kp HOME      &kp UP    &kp END        &kp INS                    &kp PG_UP        &kp N7  &kp N8  &kp N9   &trans   &trans
-&trans  &trans  &kp LEFT      &kp DOWN  &kp RIGHT      &kp RET                    &kp PG_DN        &kp N4  &kp N5  &kp N6   &trans   &trans
-&trans  &trans  &kp LC(LEFT)  &kp CAPS  &kp LC(RIGHT)  &trans   &trans    &trans  &kp PRINTSCREEN  &kp N1  &kp N2  &kp N3   &trans   &trans
-                &trans        &trans    &trans         &trans   &trans    &trans  &mo 3            &trans  &kp N0  &trans
+&trans  &trans         &trans          &trans          &trans                &trans                              &trans        &trans                 &trans           &trans    &trans            &trans
+&trans  &trans         &kp HOME        &kp UP_ARROW    &kp END               &kp PAGE_UP                         &trans        &trans                 &trans           &trans    &trans            &trans
+&trans  &trans         &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW       &kp PAGE_DOWN                       &trans        &trans                 &trans           &trans    &trans            &trans
+&trans  &kp LESS_THAN  &kp LBKT        &kp LEFT_BRACE  &kp LEFT_PARENTHESIS  &trans         &kp END    &kp C_PP  &trans        &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACE  &kp RBKT  &kp GREATER_THAN  &trans
+                       &trans          &trans          &mt LCTRL ENTER       &trans         &trans     &trans    &lt 3 DELETE  &trans                 &trans           &trans
             >;
 
-            display-name = "Navigation";
+            sensor-bindings =
+                <&inc_dec_kp LS(LC(RIGHT_ARROW)) LS(LC(LEFT_ARROW))>,
+                <&inc_dec_kp C_NEXT C_PREV>;
         };
 
         sym {
+            display-name = "Symbols";
             bindings = <
-&trans  &trans    &kp AT    &kp DLLR   &kp HASH  &trans                       &trans     &trans    &kp CARET  &trans    &trans    &trans
-&trans  &trans    &kp LT    &kp EQUAL  &kp GT    &kp GRAVE                    &trans     &kp LBKT  &kp UNDER  &kp RBKT  &trans    &trans
-&trans  &kp BSLH  &kp LPAR  &kp MINUS  &kp RPAR  &kp PLUS                     &kp PRCNT  &kp LBRC  &kp SEMI   &kp RBRC  &kp EXCL  &trans
-&trans  &trans    &kp STAR  &kp COLON  &kp FSLH  &trans     &trans    &trans  &trans     &kp PIPE  &kp TILDE  &kp AMPS  &trans    &trans
-                  &trans    &trans     &trans    &mo 3      &trans    &trans  &trans     &trans    &trans     &trans
+&trans  &trans         &trans          &trans          &trans                &trans                                &trans    &trans                 &trans           &trans        &trans            &trans
+&trans  &trans         &trans          &trans          &trans                &trans                                &trans    &trans                 &trans           &trans        &trans            &trans
+&trans  &kp PLUS       &kp UNDERSCORE  &kp EQUAL       &kp MINUS             &trans                                &trans    &kp AMPS               &kp PIPE         &kp QUESTION  &kp COLON         &trans
+&trans  &kp LESS_THAN  &kp LBKT        &kp LEFT_BRACE  &kp LEFT_PARENTHESIS  &kp FSLH         &kp END    &kp C_PP  &kp BSLH  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACE  &kp RBKT      &kp GREATER_THAN  &trans
+                       &trans          &trans          &mt LCTRL ENTER       &lt 3 BACKSPACE  &trans     &trans    &trans    &trans                 &trans           &trans
             >;
 
-            display-name = "Symbols";
+            sensor-bindings =
+                <&inc_dec_kp LS(DOWN_ARROW) LS(UP_ARROW)>,
+                <&inc_dec_kp LC(TAB) LS(LC(TAB))>;
         };
 
         adj {
             bindings = <
-&bootloader  &trans  &trans  &trans  &trans  &trans                    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2      &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR_ALL
-&trans       &trans  &trans  &trans  &trans  &trans                    &trans        &trans        &trans            &trans        &trans        &studio_unlock
-&trans       &trans  &trans  &trans  &trans  &trans                    &out OUT_BLE  &kp C_VOL_DN  &kp K_MUTE        &kp C_VOL_UP  &trans        &trans
-&trans       &trans  &trans  &trans  &trans  &trans  &trans    &trans  &out OUT_USB  &kp K_PREV    &kp K_PLAY_PAUSE  &kp K_NEXT    &trans        &trans
-                     &trans  &trans  &trans  &trans  &trans    &trans  &trans        &trans        &trans            &trans
+&kp F1    &kp F2  &kp F3  &kp F4  &kp F5  &kp F6                    &kp F7        &kp F8        &kp F9        &kp F10       &kp F11     &kp F12
+&trans    &trans  &trans  &trans  &trans  &trans                    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_CLR  &bt BT_CLR_ALL
+&kp CAPS  &trans  &trans  &trans  &trans  &trans                    &out OUT_BLE  &trans        &trans        &trans        &trans      &bootloader
+&trans    &trans  &trans  &trans  &trans  &trans  &trans    &trans  &out OUT_USB  &trans        &trans        &trans        &trans      &studio_unlock
+                  &trans  &trans  &trans  &trans  &trans    &trans  &trans        &trans        &trans        &trans
             >;
 
             display-name = "Adjust";
+            sensor-bindings =
+                <&inc_dec_kp LA(TAB) LS(LA(TAB))>,
+                <&inc_dec_kp K_SCROLL_DOWN K_SCROLL_UP>;
         };
     };
 };
